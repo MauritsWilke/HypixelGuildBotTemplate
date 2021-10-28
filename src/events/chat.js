@@ -3,6 +3,7 @@
 // TODO | Command Cooldown
 
 const { Message } = require(`../utils/Message`)
+const { logMessage } = require(`../utils/messageLogger`)
 const config = require(`../config.json`)
 
 module.exports = async (bot, IGN, MSG, translate, jsonMSG) => {
@@ -10,8 +11,7 @@ module.exports = async (bot, IGN, MSG, translate, jsonMSG) => {
 	if (!jsonMSG.extra[0].text.startsWith(`§3Officer >`) && !jsonMSG.extra[0].text.startsWith(`§2Guild >`)) return;
 
 	const message = new Message(jsonMSG)
-
-	// ! MESSAGE LOGGING
+	logMessage(message)
 
 	if (!message.content.startsWith(config.prefix)) return;
 	const args = message.content.slice(config.prefix.length).split(/ +/);

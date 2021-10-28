@@ -26,8 +26,8 @@ Suggestions can be made through Issues
   - [ ] Guild Logging Webhook URL
   - [ ] Officer Logging Webhook URL
 - [ ] Message Logging
-  - [ ] Chat Messages 
-  - [ ] Prefix for messages *if* both are enabled
+  - [x] Chat Messages 
+  - [x] Prefix for messages *if* both are enabled
   - [ ] Joined/Left messages (toggle)
   - [ ] Guild Level Up Notifications (?)
   - [ ] Guild Quest Completed

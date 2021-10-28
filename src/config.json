@@ -1,0 +1,16 @@
+{
+	"prefix": "!",
+	"guildName": "Bedwars",
+	"accountType": "microsoft",
+	"spawnMessages": [
+		"/chat g",
+		"/f I_Like_Cats__"
+	],
+	"logSettings": {
+		"logGuild": true,
+		"logOfficer": true,
+		"joinLeaveMessages": true,
+		"joinedGuildMessages": true,
+		"questTierMessages": true
+	}
+}

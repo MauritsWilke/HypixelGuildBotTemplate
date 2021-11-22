@@ -21,12 +21,18 @@ module.exports = async (bot, IGN, MSG, translate, jsonMSG) => {
 	const { settings } = command;
 
 	// ! DEV ONLY CHECK
-	if (settings?.devOnly) return bot.chat("This command is limited to the developer team")
+	if (settings?.ownerOnly) {
+		return bot.chat("This command is limited to the owners of the bot")
+	}
 
 	console.log(` > ${message.author.username} ran ${commandName}`)
 	try {
 		bot.chat(`/chat ${message.channel}`)
 		await sleep(20) // * This delay is needed for chat switching
-		command.run(bot, message, args).catch(e => { bot.chat(e); console.log(e) })
-	} catch (e) { bot.chat(e); console.log(e) }
+		command.run(bot, message, args).catch(e => { console.log(e) })
+	} catch (e) { console.log(e) }
+}
+
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
 }

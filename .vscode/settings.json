@@ -1,5 +1,8 @@
 {
 	"files.exclude": {
-		"node_modules/": false,
+		"node_modules/": true,
+		"package.json": true,
+		".env": false,
+		"package-lock.json": true
 	}
 }

@@ -1,3 +1,5 @@
+// TODO | ACTUAL GOOD SYSTEM PFP
+
 const fetch = require(`node-fetch`)
 const { logSettings } = require(`../config.json`)
 
@@ -49,4 +51,43 @@ function logMessage(Message) {
 	}
 }
 
-module.exports = { logMessage }
+function logRaw(message, guildLog, officerLog) {
+	if (guildLog) {
+		fetch(process.env.GUILD_LOGGING_WEBHOOK, {
+			"method": "POST",
+			"headers": { "Content-Type": "application/json" },
+			"body": JSON.stringify({
+				"username": `[SYSTEM]`,
+				"content": message,
+				"avatar_url": `https://minotar.net/avatar/Fehler418/128.png`,
+				"allowed_mentions": {
+					"everyone": false,
+					"roles": false,
+					"users": false
+				}
+			})
+
+		}).catch(e => console.log(e))
+	}
+
+	if (officerLog) {
+		const logWebhook = process.env.OFFICER_LOGGING_WEBHOOK || process.env.GUILD_LOGGING_WEBHOOK;
+		fetch(logWebhook, {
+			"method": "POST",
+			"headers": { "Content-Type": "application/json" },
+			"body": JSON.stringify({
+				"username": `[SYSTEM]`,
+				"content": message,
+				"avatar_url": `https://minotar.net/avatar/Fehler418/128.png`,
+				"allowed_mentions": {
+					"everyone": false,
+					"roles": false,
+					"users": false
+				}
+			})
+
+		}).catch(e => console.log(e))
+	}
+}
+
+module.exports = { logMessage, logRaw }

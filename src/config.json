@@ -6,11 +6,16 @@
 		"/chat g",
 		"/f I_Like_Cats__"
 	],
+	"owners": [
+		"11456473-de28-4d36-aa7b-4150fe7859ab",
+		"c72108c1-c114-4d11-88b8-1e0b3a7b6a24"
+	],
 	"logSettings": {
 		"logGuild": true,
 		"logOfficer": true,
 		"joinLeaveMessages": true,
 		"joinedGuildMessages": true,
-		"questTierMessages": true
+		"questTierMessages": true,
+		"guildLevelUp": true
 	}
 }
